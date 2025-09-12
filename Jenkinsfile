@@ -62,4 +62,23 @@ pipeline {
             }
         }
     }
+    stage ("commit Version update") {
+        steps {
+            script {
+                withCredentials([usernamePassword(credentialsId: 'github-accout', passwordVariable: 'PASS', usernameVariable: 'USER')]) {
+                    sh 'git config user.email "jenkins@local"'
+                    sh 'git config user.name "jenkins"'
+                    
+                    sh 'git status'
+                    sh 'git branch'
+                    sh 'git config --list'
+
+                    sh 'git config set-url origin https://${USER}:${PASS}@https://github.com/theonlywitcher/jave-maven-app"'
+                    sh 'git add .'
+                    sh 'git commit -m "Jenkins: Bumping version to ${IMAGE_NAME}"'
+                    sh 'git push origin HEAD:main'
+                }
+            }
+        }
+    }
 }
