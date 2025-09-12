@@ -47,13 +47,14 @@ pipeline {
             }
         }
         stage("deploy") {
-            input {
-                message "select the environment to deploy"
-                ok "Yes, I'm sure y"
-                parameters {
-                    choice(name : 'env', choices: ['dev', 'staging', 'prod'], description: 'Select the environment')
-                }
-            }
+            // input {
+            //     message "select the environment to deploy"
+            //     ok "Yes, I'm sure y"
+            //     parameters {
+            //         choice(name : 'env', choices: ['dev', 'staging', 'prod'], description: 'Select the environment')
+            //     }
+            // }
+            echo "deploying to ${params.env}"
             steps {
                 script {
                     gv.deployApp()
@@ -72,7 +73,7 @@ pipeline {
                         sh 'git branch'
                         sh 'git config --list'
 
-                        sh 'git config set-url origin https://${USER}:${PASS}@https://github.com/theonlywitcher/jave-maven-app"'
+                        sh "git config set-url origin https://${USER}:${PASS}@https://github.com/theonlywitcher/jave-maven-app"
                         sh 'git add .'
                         sh 'git commit -m "Jenkins: Bumping version to ${IMAGE_NAME}"'
                         sh 'git push origin HEAD:main'
