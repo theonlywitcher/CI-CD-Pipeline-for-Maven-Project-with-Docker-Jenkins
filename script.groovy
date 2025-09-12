@@ -4,7 +4,7 @@ def incremantVersion() {
     def matcher = ReadFile('pom.xml') =~ '<version>(.+)</version>'
     def version = matcher[0][1]
     env.IMAGE_NAME = "${version}-${BUILD_NUMBER}"
-
+}
 
 def buildJar() {
     echo "building the application..."
