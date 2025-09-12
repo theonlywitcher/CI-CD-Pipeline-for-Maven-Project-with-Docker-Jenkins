@@ -1,7 +1,7 @@
 def incremantVersion() {
     echo "incrementing the app Version..."
     sh 'mvn build-helper:parse-version versions:set -DnewVersion=\\${parsedVersion.majorVersion}.\\${parsedVersion.minorVersion}.\\${parsedVersion.nextIncrementalVersion} versions:commit'
-    def matcher = ReadFile('pom.xml') =~ '<version>(.+)</version>'
+    def matcher = readfile('pom.xml') =~ '<version>(.+)</version>'
     def version = matcher[0][1]
     env.IMAGE_NAME = "${version}-${BUILD_NUMBER}"
 }
