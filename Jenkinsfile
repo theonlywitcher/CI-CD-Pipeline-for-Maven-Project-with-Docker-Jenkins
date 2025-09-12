@@ -22,19 +22,13 @@ pipeline {
                 }
             }
         }
-        stage("test app") {
-            steps {
-                script {
-                    echo "testing app"
-                    gv.testapp()
-                }
-            }
         }
-        stage("build image") {
+        stage("build image and push to dockerhub") {
             steps {
                 script {
-                    echo "building image"
-                    gv.buildImage()
+                    buildImage ('ahmedredadev/jave-maven-app:jma-2.0')
+                    dockerLogin()
+                    dockerPush('ahmedredadev/jave-maven-app:jma-2.0')
                 }
             }
         }
