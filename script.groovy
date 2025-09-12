@@ -27,7 +27,10 @@ def buildImage() {
 } 
 
 def deployApp() {
-    echo 'deploying the application...'
+    dockerCmd = "docker run -d -p 8080:8080 --name jave-maven-app-${IMAGE_NAME} ahmedredadev/jave-maven-app:${IMAGE_NAME}"
+    sshagent(['Ec2-Server']) {
+    sh 'ssh -o StrictHostKeyChecking=no ec2-user@98.81.215.132'
+    }
 } 
 
 return this
