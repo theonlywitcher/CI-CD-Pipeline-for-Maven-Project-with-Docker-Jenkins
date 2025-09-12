@@ -1,3 +1,4 @@
+@Library('jenkins-shared-library')
 def gv
 
 pipeline {
@@ -6,7 +7,7 @@ pipeline {
     tools {
         maven 'maven-3.9' 
     }
-    stages {
+    stages { 
         stage("init") {
             steps {
                 script {
@@ -17,8 +18,7 @@ pipeline {
         stage("build jar") {
             steps {
                 script {
-                    echo "building jar"
-                    gv.buildJar()
+                    buildJar()
                 }
             }
         }
@@ -43,7 +43,7 @@ pipeline {
                 message "select the environment to deploy"
                 ok "Yes, I'm sure"
                 parameters {
-                    choice(name : 'env', choices: ['dev', 'staging', 'prod'], description: 'Select the environment')
+                    choice(name :'env', choices: ['dev', 'staging', 'prod'], description: 'Select the environment')
                 }
             }
             steps {
