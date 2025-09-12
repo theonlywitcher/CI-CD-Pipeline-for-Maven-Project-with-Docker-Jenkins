@@ -60,12 +60,13 @@ pipeline {
                     withCredentials([usernamePassword(credentialsId: 'Github account', passwordVariable: 'PASS', usernameVariable: 'USER')]) {
                         sh 'git config user.email "jenkins@local"'
                         sh 'git config user.name "jenkins"'
-                        
+
                         sh 'git status'
                         sh 'git branch'
                         sh 'git config --list'
 
-                        sh "git config set-url origin https://${USER}:${PASS}@https://github.com/theonlywitcher/jave-maven-app"
+                        sh "git remote set-url origin https://${USER}:${PASS}@github.com/theonlywitcher/jave-maven-app.git"
+
                         sh 'git add .'
                         sh 'git commit -m "Jenkins: Bumping version to ${IMAGE_NAME}"'
                         sh 'git push origin HEAD:main'
