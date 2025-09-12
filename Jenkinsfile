@@ -22,7 +22,6 @@ pipeline {
                 }
             }
         }
-        }
         stage("build image and push to dockerhub") {
             steps {
                 script {
@@ -48,3 +47,4 @@ pipeline {
             }
         }
     }  
+}
