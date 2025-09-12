@@ -43,7 +43,6 @@ pipeline {
             steps {
                 script {
                     echo "building image"
-                    echo "building image again"
                     gv.buildImage()
                 }
             }
@@ -63,6 +62,4 @@ pipeline {
                 }
             }
         }
-    }   
-
-}
+    }
