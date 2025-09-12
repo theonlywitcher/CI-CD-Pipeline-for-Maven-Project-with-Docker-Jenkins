@@ -1,6 +1,14 @@
+def incremantVersion() {
+    echo "incrementing the app Version..."
+    sh 'mvn build-helper:parse-version versions:set -DnewVersion=\\${parsedVersion.majorVersion}.\\${parsedVersion.minorVersion}.\\${parsedVersion.nextIncrementalVersion} versions:commit'
+    def matcher = ReadFile('pom.xml') =~ '<version>(.+)</version>'
+    def version = matcher[0][1]
+    env.IMAGE_NAME = "${version}-${BUILD_NUMBER}"
+
+
 def buildJar() {
     echo "building the application..."
-    sh 'mvn package'
+    sh 'mvn clean package'
 } 
 
 
@@ -12,9 +20,9 @@ def testapp() {
 def buildImage() {
     echo "building the docker image..."
     withCredentials([usernamePassword(credentialsId: 'dockerhub-accout', passwordVariable: 'PASS', usernameVariable: 'USER')]) {
-        sh 'docker build -t ahmedredadev/jave-maven-app:jma-2.0 .'
+        sh "docker build -t ahmedredadev/jave-maven-app:${IMAGE_NAME} ."
         sh "echo $PASS | docker login -u $USER --password-stdin"
-        sh 'docker push ahmedredadev/jave-maven-app:jma-2.0'
+        sh "docker push ahmedredadev/jave-maven-app:${IMAGE_NAME}"
     }
 } 
 
