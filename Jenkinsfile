@@ -65,7 +65,7 @@ pipeline {
                         sh 'git branch'
                         sh 'git config --list'
 
-                        sh "git remote set-url origin https://${USER}:${PASS}@github.com/theonlywitcher/jave-maven-app.git"
+                        sh "git remote set-url origin https://<USER>:<PASS>@github.com/theonlywitcher/jave-maven-app.git"
 
                         sh 'git add .'
                         sh 'git commit -m "Jenkins: Bumping version to ${IMAGE_NAME}"'
