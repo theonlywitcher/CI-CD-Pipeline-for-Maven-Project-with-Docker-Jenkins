@@ -1,8 +1,6 @@
 # CI/CD Pipeline for Maven Project with Docker & Jenkins
 
-> a devops test project — adapted and documented for clarity.
-
-Repository source: `theonlywitcher/CI-CD-Pipeline-for-Maven-Project-with-Docker-Jenkins` on GitHub. citeturn0view0
+> a devops project — adapted and documented for clarity.
 
 ---
 
