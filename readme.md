@@ -1,9 +1,5 @@
 # CI/CD Pipeline for Maven Project with Docker & Jenkins
 
-> **Portfolio project — demonstration purposes only, not intended for production use.**
-
----
-
 ## Overview
 
 This repository is a **showcase project** that demonstrates how to build a simple CI/CD pipeline for a Maven-based Java application using **Jenkins** and **Docker**.
