@@ -15,7 +15,7 @@ This repository demonstrates a simple CI/CD pipeline for a Java Maven applicatio
 
 Files present in the repository: `.gitignore`, `Jenkinsfile`, `dockerfile`, `pom.xml`, `script.groovy`, and `src/` (application source). citeturn0view0
 
-> **Note:** No `LICENSE` file or release artifacts were found in the repository root at the time of writing. If you want a license added, tell me which one. citeturn0view0
+> **Note:** No `LICENSE` file or release artifacts were found in the repository root at the time of writing. If you want a license added, tell me which one.
 
 ---
 
@@ -148,7 +148,7 @@ Set these up in Jenkins (Credentials > System) and reference them in the pipelin
 
 ## Common enhancements
 
-- Use a `Jenkinsfile` library or `script.groovy` to factor common steps (seems this repo already contains `script.groovy`). citeturn0view0
+- Use a `Jenkinsfile` library or `script.groovy` to factor common steps (seems this repo already contains `script.groovy`).
 - Add GitHub Actions or CircleCI configs as alternatives to Jenkins.
 - Add a `Makefile` or wrapper scripts for local convenience.
 - Add a `LICENSE` file and contribution guidelines (CONTRIBUTING.md).
@@ -167,7 +167,7 @@ If you want, I can also draft a shorter Arabic README variant or a `CONTRIBUTING
 
 ## Where this doc came from
 
-This README was created by inspecting the repository's public file list and structure. Key references: repository root listing. citeturn0view0
+This README was created by inspecting the repository's public file list and structure. Key references: repository root listing.
 
 ---
 
